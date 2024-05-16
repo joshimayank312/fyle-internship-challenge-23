@@ -1,0 +1,41 @@
+<!-- repositories.component.html -->
+
+<div *ngIf="isLoading" class="loader"></div>
+<div *ngIf="isLoading" class="loading-text">Loading...</div>
+<div *ngIf="!isLoading && repositories.length === 0" class="no-repositories">No repositories found.</div>
+
+<div *ngIf="!isLoading && repositories.length > 0">
+    <div class="profile-container">
+        <img [src]="profile.avatar_url" alt="Profile Picture" class="profile-picture">
+        <div class="profile-details">
+            <h2>{{ profile.name }}</h2>
+            <p *ngIf="profile.bio">{{ profile.bio }}</p>
+            <p *ngIf="profile.location"> 📍 : {{ profile.location }}</p>
+            <p *ngIf="profile.twitter_username">
+                Twitter: <a [href]="'https://twitter.com/' + profile.twitter_username" target="_blank">{{
+                    profile.twitter_username }}</a>
+            </p>
+            <p>
+                🔗 : <a [href]="profile.html_url" target="_blank">{{ profile.html_url }}</a>
+            </p>
+        </div>
+    </div>
+
+    <ul class="repository-list">
+        <li *ngFor="let repo of repositories" class="repository-item">
+            <h2 class="repository-name">{{ repo.name }}</h2>
+            <p class="repository-description">{{ repo.description }}</p>
+            <p *ngIf="repo.topics && repo.topics.length > 0" class="repository-topics">Topics: {{ repo.topics.join(', ')
+                }}</p>
+        </li>
+    </ul>
+
+    <div class="pagination-container">
+        <label for="pageSize">Repositories per page:</label>
+        <select id="pageSize" [(ngModel)]="perPage" (change)="fetchRepos()" class="page-size-select">
+            <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+        </select>
+        <button (click)="prevPage()" [disabled]="page === 1" class="pagination-button">Previous</button>
+        <button (click)="nextPage()" class="pagination-button">Next</button>
+    </div>
+</div>

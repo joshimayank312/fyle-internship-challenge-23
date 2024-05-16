@@ -1,0 +1,138 @@
+// repositories.component.scss
+
+/* CSS for loader */
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #4e8cff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* CSS for loading text */
+.loading-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* No repositories message */
+.no-repositories {
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Profile container */
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 55%;
+  text-align: left; /* Align text to the left */
+}
+
+/* Profile picture */
+.profile-picture {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px; /* Add margin to the right of the picture */
+}
+
+/* Profile details */
+.profile-details {
+  flex: 1;
+}
+
+.profile-details h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profile-details p {
+  margin: 5px 0;
+}
+
+/* Repository list */
+.repository-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Repository item */
+.repository-item {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: calc(33.33% - 20px);
+}
+
+/* Repository name */
+.repository-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Repository description */
+.repository-description {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Repository topics */
+.repository-topics {
+  font-size: 14px;
+  color: #999;
+}
+
+/* Pagination container */
+.pagination-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pagination button */
+.pagination-button {
+  background-color: #4e8cff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-button:hover {
+  background-color: #2c6de4;
+}
+
+/* Page size select */
+.page-size-select {
+  margin-left: 10px;
+  padding: 6px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
